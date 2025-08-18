@@ -51,29 +51,36 @@ public class StudentRecordManagement {
             return;
         }
         System.out.println("\n--- Student Records ---");
-        for (Student s : students) {
-            System.out.println(s);
-        }
+        for (int i = 0; i < students.size(); i++) {
+         System.out.println(students.get(i));
+         }
     }
 
     private static void searchStudent(Scanner sc) {
         System.out.print("Enter Roll No to search: ");
         int rollNo = sc.nextInt();
         boolean found = false;
-        for (Student s : students) {
-            if (s.getRollNo() == rollNo) {
-                System.out.println("Record found: " + s);
-                found = true;
-                break;
-            }
-        }
+        for (int i = 0; i < students.size(); i++) {
+           if (students.get(i).getRollNo() == rollNo) {
+           System.out.println("Record found: " + students.get(i));
+           found = true;
+           break;
+             }
+     }
         if (!found) System.out.println("No record found with Roll No: " + rollNo);
     }
 
     private static void deleteStudent(Scanner sc) {
         System.out.print("Enter Roll No to delete: ");
         int rollNo = sc.nextInt();
-        boolean removed = students.removeIf(s -> s.getRollNo() == rollNo);
+        boolean removed = false;
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getRollNo() == rollNo) {
+                students.remove(i);
+                removed = true;
+                break;
+            }
+        }
         if (removed) {
             System.out.println("Record deleted successfully.");
         } else {
