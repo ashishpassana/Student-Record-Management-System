@@ -15,14 +15,6 @@ public class Student implements Serializable {
         return rollNo;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getCourse() {
-        return course;
-    }
-
     @Override
     public String toString() {
         return "Roll No: " + rollNo + ", Name: " + name + ", Course: " + course;
